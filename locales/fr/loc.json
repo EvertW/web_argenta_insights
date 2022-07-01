@@ -1,0 +1,59 @@
+{
+  "title": "Argenta analyseur",
+  "subtitle": "Aperçu de vos revenus et dépenses\n",
+
+  "language_nl": "NL",
+  "language_fr": "FR",
+
+  "upload_button_click": "Cliquez pour télécharger",
+  "upload_button_drag": " ou faire glisser un fichier",
+  "upload_button_file_type": "XLSX",
+
+  "clear": "Effacer",
+  "other": "Autre",
+  "example": "Exemple:",
+  "total": "Total",
+  "total_balance": "Total (solde)",
+  "currency": "EUR",
+  "unknown_account": "NUMÉRO DE COMPTE INCONNU",
+
+  "period": "Période",
+  "period_until": "jusqu'à",
+
+  "income_title": "Gains",
+  "income_description": "De qui avez-vous reçu le plus d'argent ?",
+
+  "expenses_title": "Dépenses",
+  "expenses_description": "A quoi avez-vous dépensé votre argent.",
+
+  "balance_title": "Solde",
+  "balance_description": "Le solde entre les revenus et les dépenses (par compte).",
+
+  "evolution_title": "Évolution",
+  "evolution_description": "Visualisation des revenus et des dépenses.",
+
+  "transactions_title": "Transactions",
+  "transactions_description": "D'où vient votre argent et où l'avez-vous dépensé ?",
+
+  "tutorial_login_title": "S'inscrire",
+  "tutorial_login_description": "Inscrivez-vous à la banque en ligne: ",
+  "tutorial_login_url": "https://homebank.argenta.be/webapp/fr/inscrire",
+
+  "tutorial_account_title": "Sélectionnez un compte",
+  "tutorial_account_description": "Sélectionnez le compte pour lequel vous souhaitez afficher les informations.",
+
+  "tutorial_download_title": "Cliquez sur 'Chercher et télécharger'",
+  "tutorial_download_description": "Cliquez sur le bouton 'Chercher et télécharger' à droite de l'écran.",
+
+  "tutorial_dates_title": "Sélectionnez les dates souhaitées",
+  "tutorial_dates_description": "Choisissez une date de début et de fin pour laquelle vous souhaitez voir des informations.",
+
+  "tutorial_download_transactions_title": "Téléchargez vos opérations",
+  "tutorial_download_transactions_description": "Cliquez sur le bouton 'Télécharger les transactions' pour télécharger les transactions pour les dates sélectionnées.",
+
+  "tutorial_upload_title": "Téléchargez vos opérations",
+  "tutorial_upload_description": "Téléchargez le fichier que vous venez de télécharger en haut de cette page.",
+
+  "tutorial_done_title": "Achevé",
+  "tutorial_done_description": "Vous pouvez maintenant analyser vos revenus et vos dépenses."
+}

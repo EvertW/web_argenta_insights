@@ -1,0 +1,59 @@
+{
+  "title": "Argenta analysator",
+  "subtitle": "Inzichten in je inkomsten en uitgaven",
+
+  "language_nl": "NL",
+  "language_fr": "FR",
+
+  "upload_button_click": "Klik om te uploaden",
+  "upload_button_drag": " of sleep een bestand",
+  "upload_button_file_type": "XLSX",
+
+  "clear": "Wissen",
+  "other": "Overig",
+  "example": "Voorbeeld:",
+  "total": "Totaal",
+  "total_balance": "Totaal (saldo)",
+  "currency": "EUR",
+  "unknown_account": "ONBEKEND REKENINGNUMMER",
+
+  "period": "Periode",
+  "period_until": "t/m",
+
+  "income_title": "Inkomsten",
+  "income_description": "Van wie heb je het meeste geld van ontvangen.",
+
+  "expenses_title": "Uitgaven",
+  "expenses_description": "Waar heb je je geld aan uitgegeven.",
+
+  "balance_title": "Saldo",
+  "balance_description": "Het saldo tussen inkomsten en uitgaven (per rekening).",
+
+  "evolution_title": "Evolutie",
+  "evolution_description": "Visualisatie van de inkomsten en uitgaven.",
+
+  "transactions_title": "Transacties",
+  "transactions_description": "Waar komt je geld vandaan en waar heb je dit uitgegeven.",
+
+  "tutorial_login_title": "Aanmelden",
+  "tutorial_login_description": "Meld je aan op internetbankieren: ",
+  "tutorial_login_url": "https://homebank.argenta.be/webapp/nl/aanmelden",
+
+  "tutorial_account_title": "Rekening selecteren",
+  "tutorial_account_description": "Selecteer de rekening waarvoor je de inzichten wilt bekijken.",
+
+  "tutorial_download_title": "Klik op 'Zoeken en downloaden'",
+  "tutorial_download_description": "Klik op de 'Zoeken en downloaden' knop aan de rechter kant van het scherm.",
+
+  "tutorial_dates_title": "Selecteer de gewenste datums",
+  "tutorial_dates_description": "Kies een start- en einddatum waarover je inzichten wilt bekijken.",
+
+  "tutorial_download_transactions_title": "Download je transacties",
+  "tutorial_download_transactions_description": "Klik op de knop 'Verrichtingen downloaden' om de transacties voor de geselecteerde datums te downloaden.",
+
+  "tutorial_upload_title": "Upload je transacties",
+  "tutorial_upload_description": "Upload bovenaan deze pagina het zojuist gedownloade bestand.",
+
+  "tutorial_done_title": "Klaar",
+  "tutorial_done_description": "Je kunt nu de je inkomsten en uitgaven analyseren."
+}
