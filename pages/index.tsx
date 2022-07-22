@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         setFileData([])
     }
 
-    const handleFile = (e) => {
+    const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         if (e.target.files) {
             const reader = new FileReader();
@@ -47,13 +47,13 @@ const Home: NextPage = () => {
         <div className="flex min-h-screen flex-col items-center bg-slate-100">
             <Head>
                 <title>{t('title')}</title>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href="/favicon.svg"/>
             </Head>
 
             <main className="flex flex-wrap w-full items-center justify-center ">
                 <div className="flex flex-wrap bg-green-600 w-full px-12 py-8 w-full justify-between">
                     <div className="flex flex-wrap">
-                        <h1 className="text-2xl font-bold w-full text-white">{t('title')}</h1>
+                        <h1 className="text-2xl font-medium w-full text-white">{t('title')}</h1>
                         <h1 className="w-full text-white font-body text-slate-100">{t('subtitle')}</h1>
                     </div>
                     {
@@ -75,7 +75,7 @@ const Home: NextPage = () => {
                                           d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                                 </svg>
                                 <p className="mb-2 text-sm "><span
-                                    className="font-semibold">{t('upload_button_click')}</span>{t('upload_button_drag')}
+                                    className="font-medium">{t('upload_button_click')}</span>{t('upload_button_drag')}
                                 </p>
                                 <p className="text-xs text-slate-100">{t('upload_button_file_type')}</p>
                             </div>
@@ -191,31 +191,10 @@ function Content({data, clearCallback}: { data: Array<Transaction>, clearCallbac
     // Determine Graph
     ChartJS.register(...registerables);
 
-    const barData = {
-        labels: data.map(value => {
-            return value.executionDate
-        }).reverse(),
-        datasets: [{
-            data: data.map(value => {
-                return parseAmount(value.amount)
-            }).reverse(),
-            backgroundColor: data.map(value => {
-                if (parseAmount(value.amount) < 0) {
-                    return '#ef4444'
-                } else {
-                    return '#22c55e'
-                }
-            }).reverse(),
-            borderWidth: 0,
-            borderRadius: 6,
-            borderSkipped: false,
-        }]
-    }
-
     return <div className="px-12 py-8 w-full">
         <div className="flex flex-wrap justify-between">
             <div>
-                <h1 className="font-bold">{t('period')}</h1>
+                <h1 className="font-medium">{t('period')}</h1>
                 <p className="text-xl">{startDate} {t('period_until')} {endDate}</p>
             </div>
 
@@ -231,16 +210,16 @@ function Content({data, clearCallback}: { data: Array<Transaction>, clearCallbac
             <div
                 className="w-full bg-white rounded-lg border border-gray-200 shadow-md overflow-clip">
                 <div className="px-6 pt-6 border-b">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{t('income_title')}</h5>
+                    <h5 className="mb-2 text-2xl font-medium tracking-tight text-gray-900 ">{t('income_title')}</h5>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-body">{t('income_description')}</p>
                 </div>
                 <div className="h-auto max-h-96 overflow-auto">
                     <DataRows data={income} prefixed={false}/>
                 </div>
                 <div className="flex flex-wrap justify-between p-4 border-t">
-                    <span className="font-bold text-xl">{t('total')}</span>
+                    <span className="font-medium text-xl">{t('total')}</span>
                     <span
-                        className="font-bold text-xl">{formatAmount(incomeTotal, false)} {t('currency')}</span>
+                        className="font-medium text-xl">{formatAmount(incomeTotal, false)} {t('currency')}</span>
                 </div>
             </div>
 
@@ -248,16 +227,16 @@ function Content({data, clearCallback}: { data: Array<Transaction>, clearCallbac
             <div
                 className="w-full bg-white rounded-lg border border-gray-200 shadow-md overflow-clip">
                 <div className="px-6 pt-6 border-b ">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{t('expenses_title')}</h5>
+                    <h5 className="mb-2 text-2xl font-medium tracking-tight text-gray-900 ">{t('expenses_title')}</h5>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-body">{t('expenses_description')}</p>
                 </div>
                 <div className="h-auto max-h-96 overflow-auto">
                     <DataRows data={expenses} prefixed={false}/>
                 </div>
                 <div className="flex flex-wrap justify-between p-4 border-t">
-                    <span className="font-bold text-xl">{t('total')}</span>
+                    <span className="font-medium text-xl">{t('total')}</span>
                     <span
-                        className="font-bold text-xl">{formatAmount(expenseTotal, false)} {t('currency')}</span>
+                        className="font-medium text-xl">{formatAmount(expenseTotal, false)} {t('currency')}</span>
                 </div>
             </div>
 
@@ -265,21 +244,21 @@ function Content({data, clearCallback}: { data: Array<Transaction>, clearCallbac
             <div
                 className="w-full bg-white rounded-lg border border-gray-200 shadow-md overflow-clip">
                 <div className="px-6 pt-6 border-b">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{t('balance_title')}</h5>
+                    <h5 className="mb-2 text-2xl font-medium tracking-tight text-gray-900 ">{t('balance_title')}</h5>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-body">{t('balance_description')}</p>
                 </div>
                 <div className="h-auto max-h-96 overflow-auto">
                     <DataRows data={diff} prefixed={true}/>
                 </div>
                 <div className="flex flex-wrap justify-between p-4 border-t">
-                    <span className="font-bold text-xl">{t('total_balance')}</span>
+                    <span className="font-medium text-xl">{t('total_balance')}</span>
                     {
                         balance < 0 ?
                             <span
-                                className="text-xl font-bold text-red-500">{formatAmount(balance, true)} {t('currency')}</span>
+                                className="text-xl font-medium text-red-500">{formatAmount(balance, true)} {t('currency')}</span>
                             :
                             <span
-                                className="text-xl font-bold text-green-500">{formatAmount(balance, true)} {t('currency')}</span>
+                                className="text-xl font-medium text-green-500">{formatAmount(balance, true)} {t('currency')}</span>
                     }
                 </div>
             </div>
@@ -289,12 +268,31 @@ function Content({data, clearCallback}: { data: Array<Transaction>, clearCallbac
         <div
             className="mt-8 w-full bg-white rounded-lg border border-gray-200 shadow-md overflow-clip">
             <div className="px-6 pt-6 border-b">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{t('evolution_title')}</h5>
+                <h5 className="mb-2 text-2xl font-medium tracking-tight text-gray-900 ">{t('evolution_title')}</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-body">{t('evolution_description')}</p>
             </div>
             <div className="p-8 h-min">
                 <Bar
-                    data={barData}
+                    data={{
+                        labels: data.map(value => {
+                            return value.executionDate
+                        }).reverse(),
+                        datasets: [{
+                            data: data.map(value => {
+                                return parseAmount(value.amount)
+                            }).reverse(),
+                            backgroundColor: data.map(value => {
+                                if (parseAmount(value.amount) < 0) {
+                                    return '#ef4444'
+                                } else {
+                                    return '#22c55e'
+                                }
+                            }).reverse(),
+                            borderWidth: 0,
+                            borderRadius: 6,
+                            borderSkipped: false,
+                        }]
+                    }}
                     className="max-h-96"
                     options={{
                         maintainAspectRatio: false,
@@ -354,7 +352,7 @@ function Content({data, clearCallback}: { data: Array<Transaction>, clearCallbac
         <div
             className="mt-8 w-full bg-white rounded-lg border border-gray-200 shadow-md overflow-clip">
             <div className="px-6 pt-6 border-b">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{t('transactions_title')}</h5>
+                <h5 className="mb-2 text-2xl font-medium tracking-tight text-gray-900 ">{t('transactions_title')}</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-body">{t('transactions_description')}</p>
             </div>
             <div className="h-auto max-h-96 overflow-auto">
@@ -372,10 +370,10 @@ function Instructions() {
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
             <li className="mb-10 ml-12">
                 <span
-                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-bold text-green-800">
+                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-medium text-green-800">
                     1
                 </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                <h3 className="flex items-center mb-1 text-lg font-medium text-gray-900">
                     {t('tutorial_login_title')}
                 </h3>
                 <p className="mb-4 text-base font-normal text-gray-500 font-body">
@@ -386,10 +384,10 @@ function Instructions() {
             </li>
             <li className="mb-10 ml-12">
                 <span
-                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-bold text-green-800">
+                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-medium text-green-800">
                     2
                 </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                <h3 className="flex items-center mb-1 text-lg font-medium text-gray-900">
                     {t('tutorial_account_title')}
                 </h3>
                 <p className="mb-4 text-base font-normal text-gray-500 font-body">
@@ -398,52 +396,52 @@ function Instructions() {
             </li>
             <li className="mb-10 ml-12">
                 <span
-                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-bold text-green-800">
+                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-medium text-green-800">
                     3
                 </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                <h3 className="flex items-center mb-1 text-lg font-medium text-gray-900">
                     {t('tutorial_download_title')}
                 </h3>
                 <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                     {t('tutorial_download_description')}
                 </p>
-                <p className="font-semibold text-sm mb-2">{t('example')}</p>
+                <p className="font-medium text-sm mb-2">{t('example')}</p>
                 <img className="w-min border rounded-xl" src={'./tutorial/' + locale + '/download.png'}/>
             </li>
             <li className="mb-10 ml-12">
                 <span
-                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-bold text-green-800">
+                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-medium text-green-800">
                     4
                 </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                <h3 className="flex items-center mb-1 text-lg font-medium text-gray-900">
                     {t('tutorial_dates_title')}
                 </h3>
                 <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                     {t('tutorial_dates_description')}
                 </p>
-                <p className="font-semibold text-sm mb-2">{t('example')}</p>
+                <p className="font-medium text-sm mb-2">{t('example')}</p>
                 <img className="w-min border rounded-xl" src={'./tutorial/' + locale + '/dates.png'}/>
             </li>
             <li className="mb-10 ml-12">
                 <span
-                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-bold text-green-800">
+                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-medium text-green-800">
                     5
                 </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                <h3 className="flex items-center mb-1 text-lg font-medium text-gray-900">
                     {t('tutorial_download_transactions_title')}
                 </h3>
                 <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                     {t('tutorial_download_transactions_description')}
                 </p>
-                <p className="font-semibold text-sm mb-2">{t('example')}</p>
+                <p className="font-medium text-sm mb-2">{t('example')}</p>
                 <img className="w-min border rounded-xl" src={'./tutorial/' + locale + '/download_transactions.png'}/>
             </li>
             <li className="mb-10 ml-12">
                 <span
-                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-bold text-green-800">
+                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-white bg-white font-body text-xl font-medium text-green-800">
                     6
                 </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                <h3 className="flex items-center mb-1 text-lg font-medium text-gray-900">
                     {t('tutorial_upload_title')}
                 </h3>
                 <p className="mb-4 text-base font-normal text-gray-500 font-body">
@@ -452,13 +450,13 @@ function Instructions() {
             </li>
             <li className="mb-10 ml-12">
                 <span
-                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-green-700 bg-green-700 font-body text-xl font-bold text-white">
+                    className="mt-2 flex absolute -left-3 justify-center items-center w-6 h-6 rounded-full ring-8 ring-green-700 bg-green-700 font-body text-xl font-medium text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
                     </svg>
                 </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                <h3 className="flex items-center mb-1 text-lg font-medium text-gray-900">
                     {t('tutorial_done_title')}
                 </h3>
                 <p className="mb-4 text-base font-normal text-gray-500 font-body">
